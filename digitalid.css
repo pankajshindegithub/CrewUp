@@ -1,0 +1,272 @@
+ /* General Styling */
+ body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.join-btn {
+    padding: 8px 15px;
+    border: 2px solid #1dbf73;
+    border-radius: 5px;
+    color: #1dbf73;
+    text-decoration: none;
+}
+
+.join-btn:hover {
+    background: #1dbf73;
+    color: white;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin: 30px 0;
+    padding: 0 20px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Container */
+.container {
+    display: flex;
+    gap: 20px;
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers items horizontally */
+    flex-wrap: wrap; /* Allows cards to wrap if screen size is small */
+    padding: 20px; /* Adds some spacing around */
+    margin-top: 20px;
+}
+
+/* Freelancer Card */
+.freelancer-card {
+    background: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.freelancer-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Profile Image */
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: none;
+}
+
+.freelancer-card:hover .tooltip {
+    display: block;
+}
+
+/* Name & Role */
+h4 {
+    font-size: 14px;
+    color: #4CAF50;
+    margin: 0;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.role {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Rating */
+.rating {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Skills */
+.skills {
+    text-align: left;
+}
+
+.skills span {
+    display: inline-block;
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin: 3px;
+}
+
+/* Availability */
+.availability {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 12px;
+    width: 100px;
+    margin: 10px 0; /* Removes auto-centering */
+    text-align: center;
+}
+
+.available {
+    background: #e6f4ea;
+    color: #28a745;
+    
+}
+
+.busy {
+    background: #f8d7da;
+    color: #dc3545;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-between; /* Positions buttons at opposite ends */
+    gap: 10px;
+    width: 100%; /* Ensures full width */
+}
+
+/* Buttons */
+button {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 130px; /* Ensures uniform size */
+}
+
+/* Hire button (Left side) */
+.hire {
+    background: black;
+    color: white;
+}
+
+/* Collaborate button (Right side) */
+.collaborate {
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: left;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Form Fields */
+input, textarea, select {
+    width: 90%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
