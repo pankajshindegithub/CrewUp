@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+      <!-- Link CSS properly -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/writing.css') }}">
+    </head>
+    <body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fiverr Logo"> <span></span>
+        </div>
+        
+        
+        <nav>
+            <div class="nav-links">
+                     {% if user %}
+        <a style="font-weight: bold; font-size: 20px;">{{user['first_name']}}</a>
+        <a href="{{url_for('dashboard')}}">Dashboard</a>
+        {%else%}
+        <a href="{{ url_for('sign_in') }}">Sign In</a>
+        <a class="join" href="{{ url_for('join_in') }}">Join</a>
+        {%endif%}
+            </div>
+            
+        </nav>
+
+        <button class="menu-toggle">☰</button> <!-- Hamburger Icon -->
+    </header>
+    
+    <!-- Hero Image Section -->
+<section class="hero">
+    <h1>Writing & Translation</h1>
+    <!-- Hero Image -->
+    <img src="{{ url_for('static', filename='images/background3.jpg') }}" alt="Background Image" class="hero-img">
+    <p>Get your words across—in any language</p>
+    
+</section>
+
+   <!-- Categories -->
+<section class="categories">
+    <h2>Most popular in Writing & Translation</h2>
+    <div class="category-grid">
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/newspaper.png') }}" alt="Python Developers">
+            <p><a href="{{ url_for('writing_profile') }}">Articles & Blog Posts</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/translation.png') }}" alt="HTML & CSS Developers">
+            <p><a href="{{ url_for('writing_profile') }}">Translation</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/website.png') }}" alt="UI/UX Developers">
+            <p><a href="{{ url_for('writing_profile') }}">Website Content</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/product Description.png') }}" alt="WordPress Developers">
+            <p><a href="{{ url_for('writing_profile') }}">Product Descriptions</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/book editing.png') }}" alt="Shopify Developers">
+            <p><a href="{{ url_for('writing_profile') }}">Book Editing</a> </p>
+        </div>
+    </div>
+
+    <section class="tech-categories">
+        <h2>Explore Writing & Translation</h2>
+    
+        <div class="categories-container">
+            <!-- Website Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/content writing.jpg') }}" alt="graphic">
+                </div>
+                <div class="category-content">
+                    <h3>Content Writing</h3>
+                    <ul>
+                        <li><a href="{{ url_for('writing_profile'  ) }}">Articles & Blog Posts </a></li>
+                        <li><a href="{{ url_for('writing_profile'  ) }}">Content StrategyNew</a></li>
+                        <li><a href="{{ url_for('writing_profile' ) }}">Website Content</a></li>
+                        <li><a href="{{ url_for('writing_profile' ) }}">Podcast Writing</a></li>
+                        <li><a href="{{ url_for('writing_profile' ) }}">Creative Writing</a></li>
+                             </ul>
+                </div>
+            </div>
+    
+            <!-- Application Development Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Translation.jpg') }}" alt="Application Development">
+                </div>
+                <div class="category-content">
+                        <h3>Translation & Transcription</h3>
+                        <ul>
+                            <li><a href="{{ url_for('writing_profile' ) }}">Translation </a></li>
+                            <li><a href="{{ url_for('writing_profile') }}">LocalizationNew</a></li>
+                            <li><a href="{{ url_for('writing_profile') }}">Transcription</a></li>
+                            <li><a href="{{ url_for('writing_profile') }}">InterpretationNew</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+    
+            <!-- Software Development Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Career Writing.jpg') }}" alt="Software Development">
+                </div>
+                <div class="category-content">
+                    <h3>Career Writing</h3>
+                    <ul>
+                        <li><a href="{{ url_for('writing_profile' ) }}">Resume Writing</a></li>
+                        <li><a href="{{ url_for('writing_profile') }}">Cover Letters</a></li>
+                        <li><a href="{{ url_for('writing_profile') }}">LinkedIn Profiles</a></li>
+                        <li><a href="{{ url_for('writing_profile') }}">Job Descriptions</a></li>
+                        
+                                 
+                </ul>
+                </div>
+            </div>
+    
+           
+    </section>
+    
+    <div class="faq-container">
+        <div class="faq-item">
+            <h2>Writing & Translation FAQs</h2>
+            <div class="faq-question">
+                <span>How should I choose a writer?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Great content is now a must for your business so finding the right writer is one of the keys to success. Clearly define your content goals before you even start looking for a freelancer, then choose the right category and research by reading reviews and looking at portfolios, skills, and experience before you shortlist a few writers. Contact the few sellers you have selected and directly ask them some questions to assess their level of knowledge and expertise.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How can content help my business?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Content can make or break your business so it’s important that you use it in all your channels - website, social media, emails, adverts, etc. - in a way that helps and promotes your business. A good content writer will not only craft compelling text but will be able to ask the right questions beforehand so they can be sure to create an article or advert or microcopy that sells your brand in the right way to the right people.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What is the difference between copywriting and content writing?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Storytelling is key for both copywriters and content writers, but it is used for different purposes. A copywriter aims to convert and sell a product or service with the story. Whereas a content writer is more about engagement and building commitment and it can take many detours before even remotely mentioning the brand or product. Copywriting commands the reader with a clear call to action, whereas content writers craft an intricate interaction through more prolonged conversation with the audience.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>Why is content important?</span>
+            <span class="icon">^</span>
+        </div>
+        <div class="faq-answer">
+            <p>Whether it’s website content, brand identity deck, sales materials, or any other content, it’s the most important tool you have to tell a compelling story. Even though images tell a thousand words, you still need to actually use the words to attract visitors and turn them into (loyal) customers. With so much choice of talent from all different backgrounds and industries, it’s never been easier to achieve thoroughly researched polished content that shines consistently and engages the right audience.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Suggested Interest Section -->
+<section class="interest-section">
+    <h2>You might be interested in Writing & Translation</h2>
+    <div class="interest-container">
+        <span class="interest-item">Proofreading & Editing</span>
+        <span class="interest-item">Website Content</span>
+        <span class="interest-item">English to German Translations</span>
+        <span class="interest-item">English to Spanish Translations </span>
+        <span class="interest-item">Resume Writing</span>
+        <span class="interest-item">Scriptwriting</span>
+        <span class="interest-item">Translation Services</span>
+        <span class="interest-item">AI Content Editing</span>
+        <span class="interest-item">Articles and Blogposts</span>
+        <span class="interest-item">Book and eBook Writing</span>
+        <span class="interest-item">Creative Writing </span>
+        <span class="interest-item">Transcription Services</span>
+        <span class="interest-item">Cover Letters</span>
+        
+    </div>
+</section>
+
+   <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Categories -->
+        <div class="footer-column">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="{{url_for('programming')}}">Programming & Tech</a></li>
+            <li><a href="{{url_for('graphic')}}">Graphics & Design</a></li>
+            <li><a href="{{url_for('writing')}}">Writing & Translation</a></li>
+            <li><a href="{{url_for('digitalmarketing')}}">Digital Marketing</a></li>
+            </ul>
+        </div>
+
+       
+        <!-- Support -->
+        <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help & Support</a></li>
+                <li><a href="#">Trust & Safety</a></li>
+                <li><a href="#">Selling on FreelanceHub</a></li>
+                <li><a href="#">Buying on FreelanceHub</a></li>
+            </ul>
+        </div>
+
+      
+    </div>
+
+    <!-- Horizontal Line -->
+    <hr class="footer-divider">
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <p class="copyright">© 2023 FreelanceHub. All rights reserved.</p>
+        <div class="footer-social">
+            <a href="#"><img src="static/images/facebook.png" alt="Facebook"></a>
+            
+            <a href="#"><img src="static/images/linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="static/images/instagram.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+    <script src="{{ url_for('static', filename='js/writing.js') }}"></script>
+</body>
+</html>

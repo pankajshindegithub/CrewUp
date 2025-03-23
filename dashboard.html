@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      .active {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-200">
+    <div class="w-full bg-white">
+      <header
+        class="w-full shadow-md py-5 px-5 sticky top-0 left-0 z-10 bg-white"
+      >
+        <h1 class="text-4xl font-bold">Dashboard</h1>
+      </header>
+      <!-- sidebar -->
+      <div class="flex">
+        <div
+          class="w-[150px] p-2 bg-gray-800 border border-gray-200 h-screen text-white"
+        >
+          <button
+            class="btn font-bold mt-2 p-2 cursor-pointer hover:text-black hover:bg-gray-200 w-full rounded-md"
+            id="p1"
+          >
+            Hire
+          </button>
+          <button
+            class="btn font-bold mt-2 p-2 cursor-pointer hover:text-black hover:bg-gray-200 w-full rounded-md"
+            id="p2"
+          >
+            Collaboration
+          </button>
+        </div>
+        <div class="w-full min-h-screen relative">
+          <div
+            class="page p1 active absolute top-10 opacity-0 invisible left-0 w-full min-h-screen flex gap-5 flex-wrap p-4 bg-gray-100"
+          >
+            <!-- Loop for hire items (example, replace with your actual data) -->
+            {%for i in hire%}
+            <div
+              class="relative w-[250px] group h-[150px] bg-white border border-gray-200 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
+            >
+              <span
+                class="txt-md w-full text-nowrap inline-block text-ellipsis overflow-hidden"
+                >{{i['email']}}</span
+              >
+              <h1 class="text-md font-bold">
+                Budget: <span class="font-normal">{{i['budget']}}</span>
+              </h1>
+              <h1 class="text-md font-bold">
+                Payment: <span class="font-normal">{{i['payment']}}</span>
+              </h1>
+              <h1 class="text-md font-bold">
+                Meeting: <span class="font-normal">{{i['meeting']}}</span>
+              </h1>
+              <div
+                class="text-white overflow-auto rounded-lg absolute bg-green-500 p-2 top-0 left-0 w-full h-full border border-gray-200 transition-all duration-300 ease-in-out opacity-0 invisible group-hover:rotate-y-360 group-hover:visible group-hover:opacity-100"
+              >
+                <h1 class="text-md font-bold">
+                  Description:
+                  <span class="font-normal w-full h-[150px]"
+                    >{{i['description']}}</span
+                  >
+                </h1>
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+          <div
+            class="page p2 absolute top-10 opacity-0 invisible left-0 w-full min-h-screen flex gap-5 flex-wrap p-4 bg-gray-100"
+          >
+            <!-- Same structure as above for "Collaboration" items -->
+            {%for i in collab %}
+            <div
+              class="relative w-[250px] group h-[150px] bg-white border border-gray-200 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
+            >
+              <h1 class="text-md font-bold">{{i['duration']}}</h1>
+              <span
+                class="txt-md w-full text-nowrap inline-block text-ellipsis overflow-hidden"
+                >{{i['collab_email']}}</span
+              >
+              <h1 class="text-md font-bold">
+                Type:
+                <span class="font-normal">{{i['collab_type']}}</span>
+              </h1>
+              <h1 class="text-md font-bold">
+                Proposal:
+                <span class="font-normal">{{i['collab_proposal']}}</span>
+              </h1>
+              <h1 class="text-md font-bold">
+                Meeting:
+                <span class="font-normal">{{i['collab_meeting']}}</span>
+              </h1>
+              <div
+                class="text-white overflow-auto rounded-lg absolute bg-green-500 p-2 top-0 left-0 w-full h-full border border-gray-200 transition-all duration-300 ease-in-out opacity-0 invisible group-hover:rotate-y-360 group-hover:visible group-hover:opacity-100"
+              >
+                <h1 class="text-md font-bold">
+                  Skills to offer:
+                  <span class="font-normal w-full h-[150px]"
+                    >{{i['skills_to_offer']}}</span
+                  >
+                </h1>
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let pages = document.querySelectorAll(".page"); // Changed 'pages' to 'page' as per your HTML
+      let btns = document.querySelectorAll(".btn");
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          pages.forEach((page) => {
+            if (page.classList.contains(btn.id)) {
+              page.classList.add("active");
+            } else {
+              page.classList.remove("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

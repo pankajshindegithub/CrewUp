@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming</title>
+      <!-- Link CSS properly -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/programming.css') }}">
+    </head>
+    <body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fiverr Logo"> <span></span>
+        </div>
+        
+        
+        <nav>
+            <div class="nav-links">
+                       {% if user %}
+        <a style="fo nt-weight: bold; font-size: 20px;">{{user['first_name']}}</a>
+        <a href="{{url_for('dashboard')}}">Dashboard</a>
+        {%else%}
+        <a href="{{ url_for('sign_in') }}">Sign In</a>
+        <a class="join" href="{{ url_for('join_in') }}">Join</a>
+        {%endif%}
+               
+            </div>
+        </nav>
+
+        <button class="menu-toggle">☰</button> <!-- Hamburger Icon -->
+    </header>
+    
+    <!-- Hero Image Section -->
+<section class="hero">
+    <h1>Programming & Tech</h1>
+
+    <!-- Hero Image -->
+    <img src="{{ url_for('static', filename='images/background.jpg') }}" alt="Background Image" class="hero-img">
+    <p>You think it. A programmer develops it.</p>
+   
+</section>
+
+   <!-- Categories -->
+<section class="categories">
+    <h2>Most Popular in Programming & Tech</h2>
+    <div class="category-grid">
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/python.png') }}" alt="Python Developers">
+           <p><a href="{{ url_for('program_profile') }}">Python Developers</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/html css.png') }}" alt="HTML & CSS Developers">
+            <p><a href="{{ url_for('program_profile',category='freelancerid') }}">HTML & CSS Developers</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/ui-ux.png') }}" alt="UI/UX Developers">
+            <p><a href="{{ url_for('program_profile', category='freelancerid') }}">UIUX Developers</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/wordpress.png') }}" alt="WordPress Developers">
+            <p><a href="{{ url_for('program_profile', category='freelancerid') }}">WordPress Developers</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/shopify.png') }}" alt="Shopify Developers">
+            <p><a href="{{ url_for('program_profile', category='freelancerid') }}">Shopify Developers</a></p>
+        </div>
+    </div>
+
+    <section class="tech-categories">
+        <h2>Explore Programming & Tech</h2>
+    
+        <div class="categories-container">
+            <!-- Website Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/website.jpg') }}" alt="Websites">
+                </div>
+                <div class="category-content">
+                    <h3>Websites</h3>
+                    <ul>
+                        <li><a href="{{ url_for('program_profile' , category='freelancerid') }}">Web Development</a></li>
+                        <li><a href="{{ url_for('program_profile', category='freelancerid') }}">Frontend Developer</a></li>
+                        <li><a href="{{ url_for('program_profile', category='freelancerid') }}">Backend Developer</a></li>
+                        <li><a href="{{ url_for('program_profile', category='web-development') }}">Ecommerce Developer</a></li>
+                        
+     </ul>
+                </div>
+            </div>
+    
+            
+            <!-- Software Development Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/software.jpg') }}" alt="Software Development">
+                </div>
+                <div class="category-content">
+                    <h3>Software Development</h3>
+                    <ul>
+                        <li><a href="{{ url_for('program_profile', category='web-development') }}">Software Development</a></li>
+                    <li><a href="{{ url_for('program_profile', category='web-development') }}">AI Development</a></li>
+                    <li><a href="{{ url_for('program_profile', category='web-development') }}">APIs & Integrations</a></li>
+                    
+                    
+                                 
+                </ul>
+                </div>
+            </div>
+    
+            <!-- Mobile Apps Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Mobile.jpg') }}" alt="Mobile Apps">
+                </div>
+                <div class="category-content">
+                    <h3>Mobile Apps</h3>
+                    <ul>
+                        <li><a href="{{ url_for('program_profile', category='web-development') }}">Mobile App Development</a></li>
+                  
+                    <li><a href="{{ url_for('program_profile', category='web-development') }}">Android App Development</a></li>
+                    <li><a href="{{ url_for('program_profile', category='web-development') }}">iOS App Development</a></li>
+                    <li><a href="{{ url_for('program_profile', category='web-development') }}">Mobile App Maintenance</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <h2>Programmming & Tech FAQs</h2>
+            <div class="faq-question">
+                <span>What is Web programming?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Web programming or development use code to focus on the website functionality and ensure it works and is easy to use. 
+                   It involves markup, writing, network security and coding which is client and server side. The most popular web programming languages are HTML, XML, JavaScript, PHP, ASP.Net and Python.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How do I choose the right freelance programmer for my project?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>With so many programming services, it’s a challenge to choose the right programmer. Formulate a clear brief, decide on a budget,<br>
+                 deadlines and scope. Select a programmer based not only on their skills and experience but also on how well you might work and communicate.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do I need to prepare something for my programmer?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, good documentation and a clear brief are crucial for the success of getting the desired result for your project. Formulate your initial<br>
+                   high level idea and brainstorm it until you have a clear vision. Next, turn your idea into detailed functionality requirements for the backend<br>
+                   programming and detail your technical requirements (platform, devices etc.) Also add non-functional requirements e.g. performance,<br>
+                   security, load and clearly specify the scope of the project.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>What type of services can I find in Programming & Tech?</span>
+            <span class="icon">^</span>
+        </div>
+        <div class="faq-answer">
+            <p>Starting with web development for client-side (frontend) and server-side (backend), the category also offers specialists in Wordpress and<br>
+                e-commerce development, mobile or desktop apps, support & cybersecurity, as well as user testing and QA.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Suggested Interest Section -->
+<section class="interest-section">
+    <h2>You might be interested in Programming & Tech</h2>
+    <div class="interest-container">
+        <span class="interest-item">Fivem Script</span>
+        <span class="interest-item">Convert Website to App</span>
+        <span class="interest-item">Custom App</span>
+        <span class="interest-item">Discord Server</span>
+        <span class="interest-item">Python Developer</span>
+        <span class="interest-item">PHP Programmer</span>
+        <span class="interest-item">Unity Developer</span>
+        <span class="interest-item">Discord Chatbot</span>
+        <span class="interest-item">Twitch Trivia Bot</span>
+        <span class="interest-item">Shopify Expert</span>
+        <span class="interest-item">Wix website builder</span>
+        <span class="interest-item">Squarespace Programmer</span>
+        <span class="interest-item">Roblox Scripter</span>
+        <span class="interest-item">Bloxburg Builder</span>
+        <span class="interest-item">Minecraft Builders</span>
+        <span class="interest-item">WordPress Customization</span>
+        <span class="interest-item">Book Formatting</span>
+        <span class="interest-item">Custom Landing Page</span>
+        <span class="interest-item">Web Scraping</span>
+        <span class="interest-item">NFT Promotion</span>
+    </div>
+</section>
+
+   <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Categories -->
+        <div class="footer-column">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="{{url_for('programming')}}">Programming & Tech</a></li>
+            <li><a href="{{url_for('graphic')}}">Graphics & Design</a></li>
+            <li><a href="{{url_for('writing')}}">Writing & Translation</a></li>
+            <li><a href="{{url_for('digitalmarketing')}}">Digital Marketing</a></li>
+                  </ul>
+        </div>
+
+        
+        <!-- Support -->
+        <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help & Support</a></li>
+                <li><a href="#">Trust & Safety</a></li>
+                <li><a href="#">Selling on FreelanceHub</a></li>
+                <li><a href="#">Buying on FreelanceHub</a></li>
+            </ul>
+        </div>
+
+         </div>
+
+    <!-- Horizontal Line -->
+    <hr class="footer-divider">
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <p class="copyright">© 2023 FreelanceHub. All rights reserved.</p>
+        <div class="footer-social">
+            <a href="#"><img src="static/images/facebook.png" alt="Facebook"></a>
+            
+            <a href="#"><img src="static/images/linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="static/images/instagram.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+
+    <script src="{{ url_for('static', filename='js/programming.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  {% if message %}
+  <script>
+    window.location.href = "/sign";
+  </script>
+  {% endif %}
+
+  <body>
+    <style>
+      /* styles.css */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 2rem auto;
+      }
+
+      .form-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 1.75rem;
+        color: #333;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: #666;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .name-container {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .name-container .form-group {
+        flex: 1;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus {
+        outline: none;
+        border-color: #0066ff;
+      }
+
+      .password-input {
+        position: relative;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .radio-options,
+      .checkbox-option {
+        margin-top: 0.5rem;
+      }
+
+      .radio-option,
+      .checkbox-option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .radio-option input,
+      .checkbox-option input {
+        margin-right: 0.5rem;
+      }
+
+      .link {
+        color: #0066ff;
+        text-decoration: none;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+
+      .create-button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #111;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .create-button:hover {
+        background-color: #333;
+      }
+
+      .divider {
+        position: relative;
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      .divider::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        background-color: #ddd;
+        z-index: 1;
+      }
+
+      .divider span {
+        position: relative;
+        background-color: white;
+        padding: 0 1rem;
+        color: #666;
+        font-size: 0.8rem;
+        z-index: 2;
+      }
+
+      .social-login {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .social-button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .social-button img {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      .login-link {
+        text-align: center;
+        color: #666;
+      }
+
+      .error-message {
+        color: #e53935;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: block;
+      }
+    </style>
+    <div class="container">
+      <div class="form-container">
+        <h1>Create an account</h1>
+        <p class="subtitle">Enter your information to create an account</p>
+
+        <form id="account-form" action="/add_user" method="post">
+          <div class="name-container">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="first_name" required />
+              <span id="first-name-error" class="error-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last_name" required />
+              <span id="last-name-error" class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <span id="email-error" class="error-message"></span>
+          </div>
+
+          <div class="form-group password-group">
+            <label for="password">Password</label>
+            <div class="password-input">
+              <input type="password" id="password" name="password" required />
+              <button
+                type="button"
+                id="toggle-password"
+                class="toggle-password"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <span id="password-error" class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <p>I want to join as</p>
+            <div class="radio-options">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="client"
+                  name="user_type"
+                  value="client"
+                  checked
+                />
+                <label for="client">Client - Hire freelancers</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="freelancer"
+                  name="user_type"
+                  value="freelancer"
+                />
+                <label for="freelancer">Freelancer - Offer services</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group terms-group">
+            <div class="checkbox-option">
+              <input
+                type="checkbox"
+                id="agree-terms"
+                name="agree_terms"
+                required
+              />
+              <label for="agree-terms">
+                I agree to the
+                <a href="/terms" class="link">Terms of Service</a> and
+                <a href="/privacy" class="link">Privacy Policy</a>
+              </label>
+            </div>
+            <span id="terms-error" class="error-message"></span>
+          </div>
+
+          <button type="submit" class="create-button">Create Account</button>
+        </form>
+
+        <p class="login-link">
+          Already have an account?
+          <a href="{{ url_for('sign_in') }}" class="link">Sign in</a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // script.js
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("account-form");
+        const passwordInput = document.getElementById("password");
+        const togglePasswordButton = document.getElementById("toggle-password");
+        const emailInput = document.getElementById("email");
+        const termsCheckbox = document.getElementById("agree-terms");
+
+        // Toggle password visibility
+        togglePasswordButton.addEventListener("click", function () {
+          const type =
+            passwordInput.getAttribute("type") === "password"
+              ? "text"
+              : "password";
+          passwordInput.setAttribute("type", type);
+
+          // Change the eye icon
+          const eyeIcon = this.querySelector("i");
+          if (type === "password") {
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+          } else {
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+          }
+        });
+
+        // Form validation
+        form.addEventListener("submit", function (event) {
+          let isValid = true;
+
+          // Reset error messages
+          document
+            .querySelectorAll(".error-message")
+            .forEach((el) => (el.textContent = ""));
+
+          // Validate email
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(emailInput.value)) {
+            document.getElementById("email-error").textContent =
+              "Please enter a valid email address";
+            isValid = false;
+          }
+
+          // Validate password (at least 8 characters with at least one number and one letter)
+          const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+          if (!passwordPattern.test(passwordInput.value)) {
+            document.getElementById("password-error").textContent =
+              "Password must be at least 8 characters with at least one letter and one number";
+            isValid = false;
+          }
+
+          // Validate terms agreement
+          if (!termsCheckbox.checked) {
+            document.getElementById("terms-error").textContent =
+              "You must agree to the Terms of Service and Privacy Policy";
+            isValid = false;
+          }
+
+          if (!isValid) {
+            event.preventDefault();
+          }
+        });
+
+        // Social login buttons
+        // document
+        //   .querySelector(".google-button")
+        //   .addEventListener("click", function () {
+        //     window.location.href = "/auth/google";
+        //   });
+
+        // document
+        //   .querySelector(".facebook-button")
+        //   .addEventListener("click", function () {
+        //     window.location.href = "/auth/facebook";
+        //   });
+      });
+    </script>
+  </body>
+</html>

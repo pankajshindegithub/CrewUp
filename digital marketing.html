@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing</title>
+      <!-- Link CSS properly -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/digital marketing.css') }}">
+    </head>
+    <body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fiverr Logo"> <span></span>
+        </div>
+        
+        
+        <nav>
+            <div class="nav-links">
+                   {% if user %}
+        <a style="font-weight: bold; font-size: 20px;">{{user['first_name']}}</a>
+        <a href="{{url_for('dashboard')}}">Dashboard</a>
+        {%else%}
+        <a href="{{ url_for('sign_in') }}">Sign In</a>
+        <a class="join" href="{{ url_for('join_in') }}">Join</a>
+        {%endif%}
+               
+            </div>
+
+        </nav>
+        
+        <button class="menu-toggle">☰</button> <!-- Hamburger Icon -->
+    </header>
+    
+    <!-- Hero Image Section -->
+<section class="hero">
+    <h1>Digital Marketing</h1>
+    <!-- Hero Image -->
+    <img src="{{ url_for('static', filename='images/background5.jpg') }}" alt="Background Image" class="hero-img">
+    <p>Build your brand. Grow your business.</p>
+    
+</section>
+
+   <!-- Categories -->
+<section class="categories">
+    <h2>Most popular in Digital Marketing</h2>
+    <div class="category-grid">
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/seo.png') }}" alt="Python Developers">
+            <p><a href="{{ url_for('digital_profile') }}">SEO</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/social.png') }}" alt="HTML & CSS Developers">
+            <p><a href="{{ url_for('digital_profile') }}">Social Media Marketing</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/youtube.png') }}" alt="UI/UX Developers">
+            <p><a href="{{ url_for('digital_profile') }}">Video Marketing</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/email.png') }}" alt="WordPress Developers">
+            <p><a href="{{ url_for('digital_profile') }}">Email Marketing</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/e-commerce.png') }}" alt="Shopify Developers">
+            <p><a href="{{ url_for('digital_profile') }}">E-Commerce Markiting</a></p>
+        </div>
+    </div>
+
+    <section class="tech-categories">
+        <h2>Explore Digital Marketing</h2>
+    
+        <div class="categories-container">
+            <!-- Website Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Search.jpg') }}" alt="graphic">
+                </div>
+                <div class="category-content">
+                    <h3>Search</h3>
+                    <ul>
+                        <li><a href="{{ url_for('digital_profile'  ) }}">Search Engine Optimization (SEO)</a></li>
+                        <li><a href="{{ url_for('digital_profile'  ) }}">E-Commerce SEO</a></li>
+                        <li><a href="{{ url_for('digital_profile'  ) }}">Video SEO</a></li>
+                        
+                             </ul>
+                </div>
+            </div>
+    
+            <!-- Application Development Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Social.jpg') }}" alt="Application Development">
+                </div>
+                <div class="category-content">
+                        <h3>Social</h3>
+                        <ul>
+                            <li><a href="{{ url_for('digital_profile'  ) }}">Social Media Marketing</a></li>
+                            <li><a href="{{ url_for('digital_profile'  ) }}">Paid Social Media</a></li>
+                            <li><a href="{{ url_for('digital_profile'  ) }}">Influencer Marketing</a></li>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+    
+            <!-- Software Development Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Methods.jpg') }}" alt="Software Development">
+                </div>
+                <div class="category-content">
+                    <h3>Methods & Techniques</h3>
+                    <ul>
+                        <li><a href="{{ url_for('digital_profile'  ) }}">Video Marketing</a></li>
+                        <li><a href="{{ url_for('digital_profile'  ) }}">E-Commerce Marketing</a></li>
+                        <li><a href="{{ url_for('digital_profile'  ) }}">Email Marketing</a></li>
+                        <li><a href="{{ url_for('digital_profile'  ) }}">Affiliate Marketing</a></li>
+                        
+                                 
+                </ul>
+                </div>
+            </div>
+    
+          
+    </section>
+    
+    <div class="faq-container">
+        <div class="faq-item">
+            <h2>Digital Marketing FAQs</h2>
+            <div class="faq-question">
+                <span> What is digital marketing?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Digital marketing is the promotion of products or services using online channels like social media, SEO, email, and paid ads.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How does social media marketing help businesses?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>It boosts brand awareness, engages with customers, and drives traffic and sales through platforms like Facebook, Instagram, and LinkedIn.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What is influencer marketing?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Influencer marketing uses industry experts or social media influencers to promote products/services to their audience for better reach and trust.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>What are the key metrics to track in digital marketing?</span>
+            <span class="icon">^</span>
+        </div>
+        <div class="faq-answer">
+            <p>Important metrics include website traffic, conversion rates, engagement, click-through rate (CTR), and return on investment (ROI).</p>
+        </div>
+    </div>
+</div>
+
+<!-- Suggested Interest Section -->
+<section class="interest-section">
+    <h2>You might be interested in Digital Marketing</h2>
+    <div class="interest-container">
+        <span class="interest-item">SEO Services</span>
+        <span class="interest-item">Marketing Strategy</span>
+        <span class="interest-item">Social Media Marketing</span>
+        <span class="interest-item">Affiliate Marketing</span>
+        <span class="interest-item">eCommerce Marketing</span>
+        <span class="interest-item">Influencer Marketing</span>
+        <span class="interest-item">Music Promotion</span>
+        <span class="interest-item">Search Engine Marketing (SEM)</span>
+        <span class="interest-item">Email Marketing </span>
+        <span class="interest-item">Video Marketing</span>
+        <span class="interest-item">Shoutouts & Promotions</span>
+        <span class="interest-item">Youtube Marketing</span>
+        <span class="interest-item">Social Content</span>
+        <span class="interest-item">Web Analytics Services</span>
+        <span class="interest-item">Spotify Music Promotion</span>
+       
+    </div>
+</section>
+
+   <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Categories -->
+        <div class="footer-column">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="{{url_for('programming')}}">Programming & Tech</a></li>
+            <li><a href="{{url_for('graphic')}}">Graphics & Design</a></li>
+            <li><a href="{{url_for('writing')}}">Writing & Translation</a></li>
+            <li><a href="{{url_for('digitalmarketing')}}">Digital Marketing</a></li>
+                    </ul>
+        </div>
+
+     
+        <!-- Support -->
+        <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help & Support</a></li>
+                <li><a href="#">Trust & Safety</a></li>
+                <li><a href="#">Selling on FreelanceHub</a></li>
+                <li><a href="#">Buying on FreelanceHub</a></li>
+            </ul>
+        </div>
+
+           </div>
+
+    <!-- Horizontal Line -->
+    <hr class="footer-divider">
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <p class="copyright">© 2023 FreelanceHub. All rights reserved.</p>
+        <div class="footer-social">
+            <a href="#"><img src="static/images/facebook.png" alt="Facebook"></a>
+            
+            <a href="#"><img src="static/images/linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="static/images/instagram.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+    <script src="{{ url_for('static', filename='js/digital.js') }}"></script>
+</body>
+</html>

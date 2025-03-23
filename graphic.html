@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic</title>
+      <!-- Link CSS properly -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/graphic.css') }}">
+    </head>
+    <body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fiverr Logo"> <span></span>
+        </div>
+        
+        
+        <nav>
+            <div class="nav-links">
+                
+                    {% if user %}
+        <a style="font-weight: bold; font-size: 20px;">{{user['first_name']}}</a>
+        <a href="{{url_for('dashboard')}}">Dashboard</a>
+        {%else%}
+        <a href="{{ url_for('sign_in') }}">Sign In</a>
+        <a class="join" href="{{ url_for('join_in') }}">Join</a>
+        {%endif%}
+               
+            </div>
+           
+
+        </nav>
+
+        <button class="menu-toggle">☰</button> <!-- Hamburger Icon -->
+    </header>
+    
+    <!-- Hero Image Section -->
+<section class="hero">
+    <h1>Graphics & Design</h1>
+    <!-- Hero Image -->
+    <img src="{{ url_for('static', filename='images/background2.jpg') }}" alt="Background Image" class="hero-img">
+    <p>Designs to make you stand out</p>
+    
+</section>
+
+   <!-- Categories -->    
+<section class="categories">
+    <h2>Most popular in Graphics & Design</h2>
+    <div class="category-grid">
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/minilist.png') }}" alt="Python Developers">
+            <p><a href="{{ url_for('graphic_profile') }}">Minimalist Logo Design</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/Illustration.png') }}" alt="HTML & CSS Developers">
+            <p><a href="{{ url_for('graphic_profile') }}">Illustration</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/Image Editing.png') }}" alt="UI/UX Developers">
+            <p><a href="{{ url_for('graphic_profile') }}">Image Editing</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/Ai Artists.png') }}" alt="WordPress Developers">
+            <p><a href="{{ url_for('graphic_profile') }}">AI Artists</a></p>
+        </div>
+        <div class="category-card">
+            <img src="{{ url_for('static', filename='images/social-media.png') }}" alt="Shopify Developers">
+            <p><a href="{{ url_for('graphic_profile') }}">Social Media Design</a></p>
+        </div>
+    </div>
+
+    <section class="tech-categories">
+        <h2>Explore Graphics & Design</h2>
+    
+        <div class="categories-container">
+            <!-- Website Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Logo Brand.jpg') }}" alt="graphic">
+                </div>
+                <div class="category-content">
+                    <h3>Logo & Brand Identity</h3>
+                    <ul>
+                        <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">Logo Design</a></li>
+                        <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">Flyer Design</a></li>
+                        <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">Brochure Design</a></li>
+                        <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">Poster Design</a></li>
+                        
+                             </ul>
+                </div>
+            </div>
+    
+            <!-- Application Development Category -->
+            <div class="category">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/Visual.jpg') }}" alt="Application Development">
+                </div>
+                <div class="category-content">
+                        <h3>Visual Design</h3>
+                        <ul>
+                            <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">Image Editing</a></li>
+                            <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">AI Image Editing</a></li>
+                            <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">Presentation Design</a></li>
+                           
+                            <li><a href="{{ url_for('graphic_profile' , category='freelancerid') }}">Resume Design</a></li>              
+                              </ul>
+                    </div>
+                </div>
+    
+           
+    
+                    </div>
+    </section>
+    
+    <div class="faq-container">
+        <div class="faq-item">
+            <h2>Graphics & Design FAQs</h2>
+            <div class="faq-question">
+                <span>What is graphic design?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>Graphic design is the art and practice of creating visual content to communicate messages. It combines elements like typography, imagery, color, and layout to convey ideas effectively. <br>
+                   Graphic designers use design principles to craft everything from logos and branding materials to websites, social media graphics, packaging, and advertisements.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How to hire top graphic designers?</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>A captivating visual presence is very important whether you’re a business or a non-commercial entity. Your potential audiences are already forming an opinion and deciding whether to interact with you based on what they see, long before you’ve had a chance to say or write something. So it’s imperative to carefully select the right freelancer to meet your needs and keep you within budget. There are many different areas in which graphic designers specialize so if you want to hire the right talent to meet the requirements of your particular project, here are some easy to follow tips and tricks. - Always research their portfolio on Fiverr and ask for more examples if necessary; - Carefully think about what your style and preferences are so you know what you like, what you don’t like and what you actually want (colors, graphics, images, etc); - Write a clear brief - depending on the size of the project your brief can be very short or contain a lot of detail. What’s important is to be clear on the important points; - Define a budget and be clear to yourself and the freelancer how far you can stretch it; - Form a clear agreement on deadlines and revisions and respect the work of the designer - if you are clear on the above points then there shouldn’t be any surprises; - Think long-term - a good designer will be able to help you holistically and develop an evolving long-term vision for your product or service.</p>
+            </div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How much does it cost to hire a graphic designer</span>
+                <span class="icon">^</span>
+            </div>
+            <div class="faq-answer">
+                <p>There is no simple answer to this question as graphic design is not a commodity or a product that has an exact way to be measured or priced. The great thing about Fiverr is that you can find a freelance graphic designer for any budget, starting from just $5 per gig and going up to hundreds or thousands of dollars for more complex and time and resource consuming requirements. However, there are a number of factors that will influence the final price of the project such as the level of experience of the seller (from novices to Top Rated and Pro Sellers), the number or service options included in the gig, delivery times, number of revisions and whether any extras might need to be added at some point. In fact, revisions can be a very tricky area for graphic design projects so it’s key for you to have very clear requirements to start with and also to agree with the seller what their output will be (e.g.how many initial versions they will offer) to avoid any misunderstandings or unwanted surprises on both sides. A more experienced designer will charge more, however, they can also help you define your requirements and save time (and money) in the long-run by keeping you on track for your goals. Alternatively, a new freelancer who’s perhaps less experienced or trying to build their reputation will be priced more competitively but might not have the skills or professional maturity of a seasoned creative director.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>How do I write a good creative design brief?</span>
+            <span class="icon">^</span>
+        </div>
+        <div class="faq-answer">
+            <p>The creative brief is a key document that essentially defines the objectives, scope and key milestones of a design project. It gives the required information to the freelance graphic designer on what needs to be done, who the target audience will be, what key message(s) need to be communicated, what deliverables are expected, by when (deadlines and milestones). The creative brief is basically the blueprint that you’ll need to agree with your internal stakeholders, business partners or colleagues (or if you are a one-person-show - find a friend or someone you trust to use as a sounding board) and then present to the freelancer to guide, inspire them and ensure they deliver the best possible creative results. Here are some universal tips for writing a good creative brief that equally apply to most: - Start by answering the ‘what’ (your goal is) and ‘who’ (your audience is); - Be clear, concise and to the point - less is more in this case so avoid being too prescriptive and don’t elaborate too much; - Set realistic deadlines and factor in the time for feedback and revisions; - Ask for help - from your team, colleagues stakeholders; - Define what success will look like so both you and the designer can measure the results in the end (and stick to your initial definitions). Once you have all this, keep it as a template and use for future briefs as it’ll save you time and will ensure you can build long-term relationships with the graphic designers you work with.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Suggested Interest Section -->
+<section class="interest-section">
+    <h2>You might be interested in Graphics & Design</h2>
+    <div class="interest-container">
+        <span class="interest-item">Background Removal </span>
+        <span class="interest-item">Thumbnails Design</span>
+        <span class="interest-item">Book Cover Design</span>
+        <span class="interest-item">Minimalist Logo Design</span>
+        <span class="interest-item">Twitch Overlay Design</span>
+        <span class="interest-item">3D Modeling & Rendering</span>
+        <span class="interest-item">Midjourney Artists</span>
+        <span class="interest-item">Children Illustrations</span>
+        <span class="interest-item">Watercolor Logo Design</span>
+        <span class="interest-item">2D Drawings & Floor Plans</span>
+        <span class="interest-item">3D Rendering & Modeling</span>
+        <span class="interest-item">Pattern Making & Fashion</span>
+        <span class="interest-item">Character Design</span>
+        <span class="interest-item">Custom Emotes & Badges</span>
+        <span class="interest-item">Rapid Prototyping</span>
+        <span class="interest-item">Pixel Art Illustration</span>
+        <span class="interest-item">3D Logo Design</span>
+        <span class="interest-item">Label Design</span>
+        <span class="interest-item">Technical Drawing</span>
+        <span class="interest-item">Portraits Retouching</span>
+    </div>
+</section>
+
+   <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Categories -->
+        <div class="footer-column">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="{{url_for('programming')}}">Programming & Tech</a></li>
+            <li><a href="{{url_for('graphic')}}">Graphics & Design</a></li>
+            <li><a href="{{url_for('writing')}}">Writing & Translation</a></li>
+            <li><a href="{{url_for('digitalmarketing')}}">Digital Marketing</a></li>
+                    </ul>
+        </div>
+
+       
+        <!-- Support -->
+        <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help & Support</a></li>
+                <li><a href="#">Trust & Safety</a></li>
+                <li><a href="#">Selling on FreelanceHub</a></li>
+                <li><a href="#">Buying on FreelanceHub</a></li>
+            </ul>
+        </div>
+
+          </div>
+
+    <!-- Horizontal Line -->
+    <hr class="footer-divider">
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <p class="copyright">© 2023 FreelanceHub. All rights reserved.</p>
+        <div class="footer-social">
+            <a href="#"><img src="static/images/facebook.png" alt="Facebook"></a>
+            
+            <a href="#"><img src="static/images/linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="static/images/instagram.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+
+    <script src="{{ url_for('static', filename='js/graphic.js') }}"></script>
+</body>
+</html>

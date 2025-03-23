@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrewUp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="Fiverr Clone Logo"
+        />
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        {% if user %}
+        <li style="font-weight: bold">{{user['first_name']}}</li>
+        <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
+        {%else%}
+        <li><a href="{{ url_for('sign_in') }}">Sign In</a></li>
+        <li><a class="join" href="{{ url_for('join_in') }}">Join</a></li>
+        {%endif%}
+      </ul>
+    </nav>
+
+    <!-- Sticky Services Sub Navbar -->
+    <div class="sticky-services" id="stickyServices">
+      <ul>
+        <li><a href="{{ url_for('programming') }}">Web Development</a></li>
+        <li><a href="{{ url_for('graphic') }}">Graphic Design</a></li>
+        <li><a href="{{ url_for('writing') }}">Content Writing</a></li>
+        <li>
+          <a href="{{ url_for('digitalmarketing') }}">Digital Marketing</a>
+        </li>
+        <li><a href="{{ url_for('digitalmarketing') }}">SEO Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Find the perfect freelance services for your business</h1>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search For Services" />
+        <button onclick="searchServices()">Search</button>
+      </div>
+
+      <div class="content-body">
+        <img
+          src="{{ url_for('static', filename='images/rb_60111.png') }}"
+          alt="Image Left"
+          class="content-image left-image"
+        />
+        <img
+          src="{{ url_for('static', filename='images/rb_60111.png') }}"
+          alt="Image Right"
+          class="content-image right-image"
+        />
+      </div>
+
+      <span class="trusted-brands">
+        Trusted by: Meta, Google, Netflix, P&G, PayPal
+      </span>
+    </div>
+
+    <!-- Category Section -->
+    <section class="category-section">
+      <div class="3"></div>
+      <div class="card-container">
+        <div class="card">
+          <a href="{{ url_for('programming') }}">
+            <img
+              src="{{ url_for('static', filename='images/data.png') }}"
+              alt="Programming & Tech"
+              class="card-image"
+            />
+            <p>Programming & Tech</p>
+          </a>
+        </div>
+        <div class="card">
+          <a href="{{ url_for('graphic') }}">
+            <img
+              src="{{ url_for('static', filename='images/graphic-designer.png') }}"
+              alt="Graphics & Design"
+              class="card-image"
+            />
+            <p>Graphics & Design</p>
+          </a>
+        </div>
+        <div class="card">
+          <a href="{{ url_for('writing') }}">
+            <img
+              src="{{ url_for('static', filename='images/content-writing.png') }}"
+              alt="Writing & Translation"
+              class="card-image"
+            />
+            <p>Writing & Translation</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="{{ url_for('digitalmarketing') }}">
+            <img
+              src="{{ url_for('static', filename='images/digital-marketing.png') }}"
+              alt="AI Services"
+              class="card-image"
+            />
+            <p>Digital Marketing</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="popular-services">
+      <h2>Popular Services</h2>
+      <div class="services-container">
+        <!-- Web Development Service Card -->
+        <a href="{{ url_for('programming') }}" class="service-card">
+          <img
+            src="{{ url_for('static', filename='images/web-develoment.png') }}"
+            alt="Web Development"
+            class="service-icon"
+          />
+          <p>Web Development</p>
+        </a>
+
+        <!-- Logo Design Service Card -->
+        <a href="{{ url_for('graphic') }}" class="service-card">
+          <img
+            src="{{ url_for('static', filename='images/logo design.jpg') }}"
+            alt="Logo Design"
+            class="service-icon"
+          />
+          <p>Logo Design</p>
+        </a>
+
+        <!-- Social Media Marketing Service Card -->
+        <a href="{{ url_for('digitalmarketing') }}" class="service-card">
+          <img
+            src="{{ url_for('static', filename='images/Social media.png') }}"
+            alt="Social Media Marketing"
+            class="service-icon"
+          />
+          <p>Social Media Marketing</p>
+        </a>
+
+        <!-- SEO Service Card -->
+        <a href="{{ url_for('digitalmarketing') }}" class="service-card">
+          <img
+            src="{{ url_for('static', filename='images/seo.jpg') }}"
+            alt="SEO"
+            class="service-icon"
+          />
+          <p>SEO</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="top-rated-freelancers">
+      <div class="container" style="position: relative">
+        <!-- "See All" moved to the top right -->
+        <div class="see-all-container">
+          <a href="{{ url_for('program_profile') }}" class="see-all-link"
+            >See All →</a
+          >
+        </div>
+
+        <h2 class="section-title">Top Rated Freelancers</h2>
+        <div class="freelancer-grid">
+          <div class="freelancer-card">
+            <img
+              src="{{ url_for('static', filename='images/user.png') }}"
+              alt="John Doe"
+              class="freelancer-image"
+            />
+            <div class="freelancer-details">
+              <h3 class="freelancer-title">Isha Sharma</h3>
+              <p class="freelancer-role">Graphic Designer</p>
+              <p class="freelancer-rating">⭐ 4.9</p>
+            </div>
+          </div>
+          <div class="freelancer-card">
+            <img
+              src="{{ url_for('static', filename='images/user.png') }}"
+              alt="Jane Smith"
+              class="freelancer-image"
+            />
+            <div class="freelancer-details">
+              <h3 class="freelancer-title">Aarav Sinha</h3>
+              <p class="freelancer-role">Web Developer</p>
+              <p class="freelancer-rating">⭐ 4.8</p>
+            </div>
+          </div>
+          <div class="freelancer-card">
+            <img
+              src="{{ url_for('static', filename='images/user.png') }}"
+              alt="Mike Johnson"
+              class="freelancer-image"
+            />
+            <div class="freelancer-details">
+              <h3 class="freelancer-title">Kiran Jain</h3>
+              <p class="freelancer-role">Content Writer</p>
+              <p class="freelancer-rating">⭐ 4.7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+      <h2>How It Works</h2>
+
+      <div class="steps-container">
+        <div class="step-box">
+          <div class="step-number">1</div>
+          <div class="step-title">Post Your Project</div>
+          <div class="step-description">
+            Describe your project and the specific skills required to bring your
+            vision to life.
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-number">2</div>
+          <div class="step-title">Match with Talent</div>
+          <div class="step-description">
+            Browse profiles, reviews, and portfolios to find the perfect
+            freelancer or team for your needs.
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-number">3</div>
+          <div class="step-title">Complete Your Project</div>
+          <div class="step-description">
+            Work with your chosen freelancers through our secure platform until
+            your project is completed to satisfaction.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Categories -->
+        <div class="footer-column">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="{{url_for('programming')}}">Programming & Tech</a></li>
+            <li><a href="{{url_for('graphic')}}">Graphics & Design</a></li>
+            <li><a href="{{url_for('writing')}}">Writing & Translation</a></li>
+            <li><a href="{{url_for('digitalmarketing')}}">Digital Marketing</a></li>
+          </ul>
+        </div>
+
+
+        <!-- Support -->
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help & Support</a></li>
+            <li><a href="#">Trust & Safety</a></li>
+            <li><a href="#">Selling on FreelanceHub</a></li>
+            <li><a href="#">Buying on FreelanceHub</a></li>
+          </ul>
+        </div>
+
+          </div>
+
+      <!-- Horizontal Line -->
+      <hr class="footer-divider" />
+
+      <!-- Footer Bottom Section -->
+      <div class="footer-bottom">
+        <p class="copyright">© 2023 FreelanceHub. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#"
+            ><img src="static/images/facebook.png" alt="Facebook"
+          /></a>
+
+          <a href="#"
+            ><img src="static/images/linkedin.png" alt="LinkedIn"
+          /></a>
+          <a href="#"
+            ><img src="static/images/instagram.png" alt="Instagram"
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
